@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>To Do List</title>
+        <link rel="stylesheet" href="/css/styles.css">
+        <script src="main.js"></script>
+    </head>
+
+    <body>
+        <h1>To Do List</h1>
+        <div class="template">
+            <form id="myForm">
+                <input type="text" class="textbox" placeholder="What do you want to do..." id="textbox">
+                <button class="add" id="add">Add</button>
+            </form>
+        </div>
+        <ul id="items">
+        </ul>
+        <script>
+            const button = document.getElementById('add');
+            const myList = document.getElementById('items');
+            const form = document.getElementById('myForm');
+            
+
+            function enter(event){
+                event.preventDefault();
+            }
+
+            form.addEventListener('submit', enter)
+
+            function add_To_List(){
+                const text = document.getElementById('textbox').value;
+                if(text.length>0){
+                    const newItem = document.createElement('li');
+                    newItem.textContent = text;
+                    myList.appendChild(newItem);
+                }
+            }
+
+            button.addEventListener('click', add_To_List);
+
+        </script>
+    </body>
+</html>
